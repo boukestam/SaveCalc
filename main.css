@@ -1,0 +1,24 @@
+body{
+	padding: 0;
+	margin: 0;
+	background: #FFF5D1;
+	font: 14px/16px Arial, Helvetica, sans-serif;
+}
+
+#header{
+	background: #FFEA84;
+	text-align: center;
+}
+
+#logo{
+}
+
+#content{
+	padding: 20px;
+	margin-top: 20px;
+	max-width: 800px;
+	background: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #E8E8E8;
+}

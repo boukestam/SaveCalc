@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SaveCalc</title>
+	
+	<link href="main.css" rel="stylesheet"/>
+
+	<script src="jquery.js"></script>
+	<script src="plotly.js"></script>
+	<script src="main.js"></script>
+</head>
+
+<body onload="init()">
+	<div id="header">
+		<img src="logo.png" id="logo"/>
+	</div>
+
+	<div id="content">
+		<div id="inputs">
+			<h2>Options</h2>
+
+			<table>
+				<tr>
+                    <td>
+                        <select id="timespan_visit_times" onchange="UpdateSpending()">
+                            <option value="52">Weekly</option>
+                            <option value="12">Monthly</option>
+                            <option value="1">Yearly</option>
+                        </select>
+                        restaurant visits
+                    </td>
+
+                    <td><input type="number" id="visit_times" value='1' onchange="UpdateSpending()" style="width:40px"></td> 
+                </tr>
+
+                <tr>
+                    <td>Average spending</td>
+                    
+                    <td>
+                        <input type="number" id="average_spending" value="1" style="width:40px" onchange="UpdateSpending()"> 
+                    </td> 
+                </tr>
+                    
+                <tr>
+                    <td>
+                        <select id="timespan_interest" onchange="UpdateSpending()">
+                            <option value="12">Monthly</option>
+                            <option value="1">Yearly</option>
+                        </select>
+                        interest
+                    </td>
+                    
+                    <td>
+                        <input type="number" id="interest" value="6" onchange="UpdateSpending()" style="width:40px"> %
+                    </td> 
+				</tr>
+			</table>
+        </div>
+
+        <div id="chart"></div>
+        
+        <div style="margin-top: 20px">
+            Check out our other app <a href="#">WeightCalc</a> to calculate the weight loss from not eating hamburgers
+        </div>
+    </div>
+</body>
+</html>
