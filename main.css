@@ -1,24 +1,28 @@
 body{
 	padding: 0;
 	margin: 0;
-	background: #FFF5D1;
+	background: #f5f5f5;
 	font: 14px/16px Arial, Helvetica, sans-serif;
 }
 
 #header{
-	background: #FFEA84;
+	background: #1976d2;
 	text-align: center;
-}
-
-#logo{
 }
 
 #content{
 	padding: 20px;
-	margin-top: 20px;
+	margin: 20px 0px;
 	max-width: 800px;
 	background: #FFF;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid #E8E8E8;
+}
+
+@media (max-width: 600px) {
+    #content{
+        margin: 0px;
+        border: none;
+    }
 }

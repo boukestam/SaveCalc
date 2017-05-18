@@ -5,7 +5,10 @@ var widthEndGraph;
 
 var widthSpacingForOneInterest;
 
-function init(){
+var plotData = null;
+var plotNode = null;
+
+function update(){
 	// Retrieve values
 	var timespan_visit_times = $("#timespan_visit_times option:selected").val();
 	var visit_times = $("#visit_times").val();
@@ -13,11 +16,11 @@ function init(){
 
 	var average_spending = $("#average_spending").val();
 	var valuta = $("#valuta option:selected").val();
-	if(average_spending < 1){$("#average_spending").val(1);}
+	if(average_spending < 0.01){$("#average_spending").val(0.01);}
 	
 	var interest = $("#interest").val();
 	var timespan_interest = $("#timespan_interest option:selected").val();
-	if(interest < 1){$("#interest").val(1);}
+	if(interest < 0){$("#interest").val(0);}
 	
     // Calculate interest
 	var visitTimesEachYear = visit_times * timespan_visit_times;
@@ -38,22 +41,46 @@ function init(){
         time.push(i);
 	}
 
-    var trace = {
-        x: time,
-        y: money,
-        type: "scatter"
-    };
+    if(plotData == null){
+        var gd3 = Plotly.d3.select('#chart').style({
+            width: '100%',
+        });
+        plotNode = gd3.node();
 
-    var layout = {
-        title: "Savings",
-        xaxis: {
-            title: "Time"
-        },
-        yaxis: {
-            title: "Money"
+        // Create graph
+        plotData = [{
+            x: time,
+            y: money,
+            type: "scatter"
+        }];
+
+        var layout = {
+            title: "Savings",
+            xaxis: {
+                title: "Time"
+            },
+            yaxis: {
+                title: "Money"
+            },
+            margin: {
+                l: 40,
+                r: 0,
+                b: 40,
+                t: 40,
+                pad: 0
+            },
+        };
+
+        Plotly.plot(plotNode, plotData, layout);
+
+        window.onresize = function(){
+            Plotly.Plots.resize(plotNode);
         }
-    };
-
-    // Create graph
-    Plotly.newPlot("chart", [trace], layout);
+    }else{
+        // Update graph
+        
+        plotData[0].x = time;
+        plotData[0].y = money;
+        Plotly.redraw(plotNode);
+    }
 }

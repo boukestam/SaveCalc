@@ -8,9 +8,11 @@
 	<script src="jquery.js"></script>
 	<script src="plotly.js"></script>
 	<script src="main.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body onload="init()">
+<body onload="update()">
 	<div id="header">
 		<img src="logo.png" id="logo"/>
 	</div>
@@ -22,7 +24,7 @@
 			<table>
 				<tr>
                     <td>
-                        <select id="timespan_visit_times" onchange="UpdateSpending()">
+                        <select id="timespan_visit_times" onchange="update()">
                             <option value="52">Weekly</option>
                             <option value="12">Monthly</option>
                             <option value="1">Yearly</option>
@@ -30,20 +32,20 @@
                         restaurant visits
                     </td>
 
-                    <td><input type="number" id="visit_times" value='1' onchange="UpdateSpending()" style="width:40px"></td> 
+                    <td><input type="number" id="visit_times" value='1' onchange="update()" style="width:40px"></td> 
                 </tr>
 
                 <tr>
                     <td>Average spending</td>
                     
                     <td>
-                        <input type="number" id="average_spending" value="1" style="width:40px" onchange="UpdateSpending()"> 
+                        <input type="number" id="average_spending" value="1" style="width:40px" onchange="update()"> 
                     </td> 
                 </tr>
                     
                 <tr>
                     <td>
-                        <select id="timespan_interest" onchange="UpdateSpending()">
+                        <select id="timespan_interest" onchange="update()">
                             <option value="12">Monthly</option>
                             <option value="1">Yearly</option>
                         </select>
@@ -51,7 +53,7 @@
                     </td>
                     
                     <td>
-                        <input type="number" id="interest" value="6" onchange="UpdateSpending()" style="width:40px"> %
+                        <input type="number" id="interest" value="6" onchange="update()" style="width:40px"> %
                     </td> 
 				</tr>
 			</table>
