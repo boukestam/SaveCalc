@@ -60,12 +60,12 @@ function update(){
         }];
 
         var layout = {
-            title: "Savings",
+            title: "Besparing",
             xaxis: {
-                title: "Time"
+                title: "Tijd"
             },
             yaxis: {
-                title: "Money"
+                title: "Geld"
             },
             margin: {
                 l: 40,
